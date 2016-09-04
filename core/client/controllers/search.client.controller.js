@@ -25,7 +25,7 @@
     };
 
     // What to do once an option is chosen
-    $scope.selectedChampion = function(selected) {
+    $scope.selectedChampion = function (selected) {
       if (selected) {
         window.alert('You have selected ' + selected.title);
       } else {

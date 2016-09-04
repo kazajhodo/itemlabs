@@ -1,8 +1,28 @@
 'use strict';
 
+var mongoose = require('mongoose'),
+  utility = require('./utility.server.controller'),
+  ChampionsData = mongoose.model('StaticChampions'),
+  _ = require('lodash');
+
 // Have autopopulate options working in frontend
 // Now pull champion data from api and store in mongo
 // Check if data exists, if not pull from api, if it does pull from mongo
 exports.getChampions = function (req, res) {
-  res.json([{ 'name': 'roderick' }, { 'name': 'ding-dong' }]);
+  utility.getStatic(req, res);
+
+  ChampionsData.findOne({}, function (er, data) {
+    if (er) {
+      console.error(er);
+    } else {
+      var keys = data.getKeys,
+        options = [];
+
+      _.forEach(keys, function (value, index) {
+        options.push({ 'name': value });
+      });
+
+      res.json(options);
+    }
+  });
 };
