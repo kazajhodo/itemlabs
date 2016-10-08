@@ -15,11 +15,14 @@ exports.getChampions = function (req, res) {
     if (er) {
       console.error(er);
     } else {
-      var keys = data.getKeys,
+      var champions = data.getChampions,
+        imageUrl = 'http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/',
         options = [];
 
-      _.forEach(keys, function (value, key) {
-        options.push({ 'name': value, 'key': key });
+      console.log(imageUrl);
+
+      _.forEach(champions, function (value, key) {
+        options.push({ 'name': champions[key].name, 'key': key, 'image': imageUrl + champions[key].image.full });
       });
 
       res.json(options);
