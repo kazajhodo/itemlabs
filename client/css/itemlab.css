@@ -1,0 +1,30 @@
+/* custom Styles */
+
+/* Angucomplete search */
+.angucomplete-dropdown{
+  width: 100%;
+}
+
+.angucomplete-row{
+  padding: 0;
+}
+
+.angucomplete-row:after{
+  display: table;
+  content: " ";
+}
+
+.angucomplete-selected-row{
+  background: none;
+  margin-left: -4px;
+  border-left: 4px solid green;
+  color: ;
+}
+
+.angucomplete-image{
+  border: 0;
+}
+
+.angucomplete-title{
+  padding: 10px;
+}

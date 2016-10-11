@@ -22,7 +22,7 @@ exports.getChampions = function (req, res) {
       console.log(imageUrl);
 
       _.forEach(champions, function (value, key) {
-        options.push({ 'name': champions[key].name, 'key': key, 'image': imageUrl + champions[key].image.full });
+        options.push({ 'name': champions[key].name + ' - ' + champions[key].title, 'key': key, 'image': imageUrl + champions[key].image.full });
       });
 
       res.json(options);
