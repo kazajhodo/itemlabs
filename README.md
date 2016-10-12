@@ -1,4 +1,4 @@
-# lol-itemlab
+# itemlabs
 
 Create and compare itemsets on your favorite champions.
 
