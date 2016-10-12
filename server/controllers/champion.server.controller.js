@@ -19,10 +19,8 @@ exports.getChampions = function (req, res) {
         imageUrl = 'http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/',
         options = [];
 
-      console.log(imageUrl);
-
       _.forEach(champions, function (value, key) {
-        options.push({ 'name': champions[key].name + ' - ' + champions[key].title, 'key': key, 'image': imageUrl + champions[key].image.full });
+        options.push({ 'name': champions[key].name + ' - ' + champions[key].title, 'image': imageUrl + champions[key].image.full });
       });
 
       res.json(options);

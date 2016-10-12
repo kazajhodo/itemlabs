@@ -1,5 +1,5 @@
 (function (app) {
   'use strict';
 
-  app.registerModule('itemlabs');
+  app.registerModule('itemlabs', ['angucomplete-alt']);
 }(ApplicationConfiguration));

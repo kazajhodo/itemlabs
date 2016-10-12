@@ -8,6 +8,9 @@
   routeConfig.$inject = ['$stateProvider'];
 
   function routeConfig($stateProvider) {
+
+    console.log();
+
     $stateProvider
       .state('home', {
         url: '/',
