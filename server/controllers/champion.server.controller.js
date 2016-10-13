@@ -16,11 +16,13 @@ exports.getChampions = function (req, res) {
       console.error(er);
     } else {
       var champions = data.getChampions,
-        imageUrl = 'http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/',
+        version = data.staticVersion,
+        dragon = data.dragon,
+        imageUrl = dragon + version + '/img/champion/',
         options = [];
 
       _.forEach(champions, function (value, key) {
-        options.push({ 'name': champions[key].name + ' - ' + champions[key].title, 'image': imageUrl + champions[key].image.full });
+        options.push({ 'name': champions[key].name + ' - ' + champions[key].title, 'image': imageUrl + champions[key].image.full, 'key': key });
       });
 
       res.json(options);
@@ -33,7 +35,16 @@ exports.championData = function(req, res, championKey) {
     if (err) {
       console.error(err);
     } else {
-      var championData = data.getChampions[championKey];
+      var championData = data.getChampions[championKey],
+        version = data.staticVersion,
+        dragon = data.dragon,
+        combine = [];
+
+      // Pass back data dragon url and version
+      // We use these values in templates to call images from the data dragon api
+
+      // Todo: modify the data here so that we only have the stats we want to display in the front-end
+      championData = _.concat(combine, championData, dragon, version);
 
       res.json(championData);
     }

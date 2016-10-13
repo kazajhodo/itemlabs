@@ -23,7 +23,6 @@
       },
       getChampData: function (selection) {
         var deferred = $q.defer(),
-          champion = selection.name,
           key = selection.key;
 
         $http.post('/api/champion/' + key)

@@ -1,4 +1,63 @@
 /* custom Styles */
+body{
+  background: url(../img/binding_dark.png) 0 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+h2{
+  color: #c1c1c1;
+  line-height: 28px;
+}
+
+ul, ol{
+  list-style-type: none;
+}
+
+/* Clearfix */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#search_value{
+  background: #000;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  font-size: 16px;
+  padding: 2.5% 2%;
+}
+
+#search_dropdown{
+  background: #000;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  padding: 2.5% 4%;
+}
+
+/* Champion Details */
+.champion.container{
+  margin: 8% 0;
+}
+
+#championInfo{
+  margin: 2% 0;
+}
+
+#championInfo h2{
+  margin-bottom: 0;
+  padding: 4% 0 0;
+}
+
+#championInfo img{
+  float: left;
+  margin-right: 2%;
+}
+
+#championInfo p{
+  color: #5d5d5d;
+  font-size: 20px;
+}
 
 /* Angucomplete search */
 .angucomplete-dropdown{
@@ -6,25 +65,60 @@
 }
 
 .angucomplete-row{
-  padding: 0;
+  margin: 1% 0;
+  padding: 0.5%;
 }
 
 .angucomplete-row:after{
-  display: table;
   content: " ";
+  display: table;
 }
 
 .angucomplete-selected-row{
   background: none;
+  border-left: 4px solid #fff;
+  border-left: 4px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
   margin-left: -4px;
-  border-left: 4px solid green;
-  color: ;
 }
 
 .angucomplete-image{
   border: 0;
+  border-radius: 24%;
+  height: 50px;
+  margin-top: -8px;
+  width: 50px;
 }
 
 .angucomplete-title{
+  color: #fff;
   padding: 10px;
+  text-transform: capitalize;
+}
+
+.angucomplete-title:hover{
+  color: #b5b5b5;
+}
+
+/* Default placeholder text */
+::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 1;
+  letter-spacing: 1px;
+}
+
+::placeholder{
+  color: #fff;
+}
+
+:-moz-placeholder {
+  color: #fff;  
+}
+
+::-moz-placeholder {
+  color: #fff;  
+}
+
+:-ms-input-placeholder {  
+  color: #fff;  
 }

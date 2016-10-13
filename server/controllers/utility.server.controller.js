@@ -23,6 +23,9 @@ exports.zeroCheck = function (value) {
   return value || 0;
 };
 
+/**
+ * Get current data dragon version number for recent data retreival
+ */
 exports.getStatic = function (req, res) {
   lolapi.Static.getVersions(function (error, data) {
     if (error) {

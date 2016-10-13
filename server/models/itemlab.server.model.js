@@ -85,6 +85,10 @@ var ChampionsSchema = new Schema({
   champCount: {
     type: Number,
     default: ''
+  },
+  dragon: {
+    type: String,
+    default: 'http://ddragon.leagueoflegends.com/cdn/'
   }
 });
 mongoose.model('StaticChampions', ChampionsSchema);
@@ -101,6 +105,10 @@ var ItemsSchema = new Schema({
   getItems: {
     type: Object,
     default: ''
+  },
+  dragon: {
+    type: String,
+    default: 'http://ddragon.leagueoflegends.com/cdn/'
   }
 });
 mongoose.model('StaticItems', ItemsSchema);
@@ -117,6 +125,10 @@ var MasteriesSchema = new Schema({
   getMasteries: {
     type: Object,
     default: ''
+  },
+  dragon: {
+    type: String,
+    default: 'http://ddragon.leagueoflegends.com/cdn/'
   }
 });
 mongoose.model('StaticMasteries', MasteriesSchema);
@@ -133,6 +145,10 @@ var RealmSchema = new Schema({
   getRealm: {
     type: Object,
     default: ''
+  },
+  dragon: {
+    type: String,
+    default: 'http://ddragon.leagueoflegends.com/cdn/'
   }
 });
 mongoose.model('StaticRealm', RealmSchema);
@@ -149,6 +165,10 @@ var RunesSchema = new Schema({
   getRunes: {
     type: Object,
     default: ''
+  },
+  dragon: {
+    type: String,
+    default: 'http://ddragon.leagueoflegends.com/cdn/'
   }
 });
 mongoose.model('StaticRunes', RunesSchema);
@@ -165,6 +185,10 @@ var SpellsSchema = new Schema({
   getSummonerSpells: {
     type: Object,
     default: ''
+  },
+  dragon: {
+    type: String,
+    default: 'http://ddragon.leagueoflegends.com/cdn/'
   }
 });
 mongoose.model('StaticSpells', SpellsSchema);

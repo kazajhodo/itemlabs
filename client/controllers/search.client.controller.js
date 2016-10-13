@@ -14,6 +14,9 @@
         SearchService.getChampData(selected.originalObject)
           .then(function (data) {
             console.log(data);
+            $scope.champion = data;
+
+            return $scope;
           }, function (er) {
             console.error(er);
           });

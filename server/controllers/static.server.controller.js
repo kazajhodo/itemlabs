@@ -1,5 +1,12 @@
 'use strict';
 
+/*
+ * Todo:
+ * Loop over all champions and figure out averages for each stat
+ * Take those averages and add to object as a key + modifier : value for frontend display
+ * Average from the amount of averages a base stat rating
+*/
+
 var mongoose = require('mongoose'),
   Summoner = mongoose.model('Summoner'),
   ChampionsData = mongoose.model('StaticChampions'),

@@ -1,5 +1,5 @@
 <section>
-  <angucomplete-alt id="ex1"
+  <angucomplete-alt id="search"
     placeholder="Search champions..."
     pause="100"
     selected-object="selectedChampion"
@@ -12,9 +12,16 @@
   />
 </section>
 
-<!--
-  selected-object: fired when an option is selected
-  local-data: list of data the autocomplete will filter
-  search-fields: fields in data to check against
-  title-field: used for display, can be same as search-field
--->
+<div ng-show="champion" class="champion container">
+  <div id="championInfo" class="group">
+    <img src="{{champion[1]}}{{champion[2]}}/img/champion/{{champion[0].image.full}}" alt="League of Legends champion {{champion[0].name}} picture." />
+    <h2 ng-bind="champion[0].name"></h2>
+    <p ng-bind="champion[0].title"></p>
+  </div>
+
+  <div class="stats">
+    <ul>
+      <li ng-repeat="(key, value) in champion[0].stats">{{key}}: {{value}}</li>
+    </ul>
+  </div>
+</div>
