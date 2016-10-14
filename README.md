@@ -6,6 +6,7 @@ In meanjs its fine to edit the core module, however I'm trying to avoid this as 
 
 Removed header within core/server/views/layout.server.view.html
 Added font to core/server/views/layout.server.view.html
+  - <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 Removed 'home' state from core/client/config/core.client.routes.js
 
