@@ -41,6 +41,8 @@ exports.getStatic = function (req, res) {
 
 exports.champAverages = function (champions) {
   var averages = {},
+    highStats = {},
+    lowStats = {},
     count = 0,
     total = Object.keys(champions).length;
 
@@ -51,9 +53,22 @@ exports.champAverages = function (champions) {
     // Loop through each stat and add to matching key
     // Result will be all stats with a total value across all champions
     // In the final loop we will devise averages
+
+    // Also deduce highest and lowest ranges of each stat
+    // Saving those stats to their respective objects
     _.forEach(stats, function (value, key) {
       var previous = (averages[key] ? averages[key] : 0),
-        current = previous + value;
+        current = previous + value,
+        high = (highStats[key] ? highStats[key] : 0),
+        low = (lowStats[key] ? lowStats[key] : 10000);
+
+      if (high < value) {
+        highStats[key] = _.round(value, 3);
+      }
+
+      if (low > value) {
+        lowStats[key] = _.round(value, 3);
+      }
 
       averages[key] = _.round(current, 3);
     });
@@ -63,6 +78,12 @@ exports.champAverages = function (champions) {
     if (total === count) {
       _.forEach(averages, function (value, key) {
         averages[key] = _.round(value / total, 3);
+      });
+
+      // Returns averages object
+      // Defined as: key: [average, high, low]
+      averages = _.mergeWith(averages, highStats, lowStats, function (objValue, srcValue, key, object, source, stack) {
+        return _.concat(objValue, srcValue);
       });
     }
   });
