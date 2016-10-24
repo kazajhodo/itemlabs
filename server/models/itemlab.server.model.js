@@ -82,6 +82,10 @@ var ChampionsSchema = new Schema({
     type: Object,
     default: ''
   },
+  champAverages: {
+    type: Object,
+    default: ''
+  },
   champCount: {
     type: Number,
     default: ''

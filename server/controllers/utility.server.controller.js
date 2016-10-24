@@ -1,6 +1,7 @@
 'use strict';
 
 var staticData = require('./static.server.controller'),
+  _ = require('lodash'),
   lolapi = require('lolapi')(process.env.RIOT_API, 'na');
 
 /**
@@ -36,4 +37,34 @@ exports.getStatic = function (req, res) {
       staticData.getStatic(req, res, version);
     }
   });
+};
+
+exports.champAverages = function (champions) {
+  var averages = {},
+    count = 0,
+    total = Object.keys(champions).length;
+
+    // Loop over each champion and grabs stats data
+  _.forEach(champions, function (value, key) {
+    var stats = champions[key].stats;
+
+    // Loop through each stat and add to matching key
+    // Result will be all stats with a total value across all champions
+    // In the final loop we will devise averages
+    _.forEach(stats, function (value, key) {
+      var previous = (averages[key] ? averages[key] : 0),
+        current = previous + value;
+
+      averages[key] = _.round(current, 3);
+    });
+    count ++;
+
+    // Divide by the total number of champions to obtain stat averages
+    if (total === count) {
+      _.forEach(averages, function (value, key) {
+        averages[key] = _.round(value / total, 3);
+      });
+    }
+  });
+  return averages;
 };
