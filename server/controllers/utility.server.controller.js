@@ -39,12 +39,11 @@ exports.getStatic = function (req, res) {
   });
 };
 
-exports.champAverages = function (champions) {
+exports.champAverages = function (champions, total) {
   var averages = {},
     highStats = {},
     lowStats = {},
-    count = 0,
-    total = Object.keys(champions).length;
+    count = 0;
 
     // Loop over each champion and grabs stats data
   _.forEach(champions, function (value, key) {

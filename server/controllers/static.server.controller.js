@@ -47,7 +47,7 @@ exports.getStatic = function (req, res, version) {
             champions.getChampions = data.data;
             champions.staticVersion = version;
             champions.champCount = _.keys(data.data).length;
-            champions.champAverages = utility.champAverages(champions.getChampions);
+            champions.champAverages = utility.champAverages(champions.getChampions, champions.champCount);
 
             utility.duplicateRemove(ChampionsData, data.staticVersion);
             exports.saveStatic(res, champions);
