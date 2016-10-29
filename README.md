@@ -18,7 +18,7 @@ Add angucomplete js and css files in config/assets/default.js
 
 ### I only have my module included in the repo, these are dependencies for the install
 Modules to install:
-npm install lodash && npm install lolapi && bower install angucomplete-alt --save
+npm install && npm install lolapi && bower install angucomplete-alt --save
 
 
 
